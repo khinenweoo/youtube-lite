@@ -1,0 +1,111 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    padding-top: 80px;
+    background-color: #0f0f0f;
+    width: 15%;
+    height: 100vh;
+    border-right: 1px solid rgb(61, 61, 61);
+}
+
+.sidebar-content {
+    padding: 0;
+    margin: 0;
+}
+
+.cat-link, .user-link {
+    display: block;
+    position: relative;
+    width: calc(100% - 8%);
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.cat-link .cat-icon {
+    margin-right: 20px;
+}
+
+.cat-link .cat-name, .user-link p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.795rem;
+    line-height: 1rem;
+    font-weight: 400;
+    color: #f1f1f1;
+}
+.sidebar h3 {
+    width: calc(100% - 10%);
+    padding: 0 12px 4px 12px;
+}
+.sidebar hr {
+    border: 0;
+    height: 1px;
+    background: #535353;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.subscriptions p {
+    margin-top: 10px;
+}
+
+.subscriptions img {
+    width: 25px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.small-sidebar {
+    width: 5%;
+    border-right: none;
+}
+
+.small-sidebar .cat-link{
+    padding: 10px 0;
+}
+
+.small-sidebar .cat-link .cat-icon{
+    margin-right: 0;
+}
+
+.small-sidebar span {
+    display: none;
+}
+
+.small-sidebar h3 {
+    display: none;
+}
+
+.small-sidebar hr {
+    width: 90%;
+    margin-bottom: 25px;
+}
+
+
+#guide-inner-content.content-wrapper {
+    height: 92vh;
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: hidden;
+    flex: 1;
+    flex-basis: 0.000000001px;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-color: #555 #1e1e1e;
+    scrollbar-width: thin;
+}
+/* Custom scrollbar */
+
+
+#guide-inner-content::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+#guide-inner-content::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+  border: 2px solid #1e1e1e;
+}

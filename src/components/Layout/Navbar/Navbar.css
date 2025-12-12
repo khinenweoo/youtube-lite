@@ -1,0 +1,266 @@
+.navbar {
+    padding: 10px 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0f0f0f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Navbar Left */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-left .menu-icon {
+    width: 22px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.navbar-left .menu-icon:hover {
+    opacity: 0.7;
+}
+
+.navbar-left .logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 6px;
+}
+
+.navbar-left .logo {
+    width: 40px;
+}
+
+.navbar-left .logo-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Navbar Middle - Desktop Search */
+.navbar-middle {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 20px;
+}
+
+.search-box {
+    display: flex;
+    border: 1px solid hsl(0, 0%, 25%);
+    border-radius: 25px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.search-box form {
+    display: flex;
+    width: 100%;
+}
+.search-box input {
+    flex: 1;
+    padding: 8px 16px;
+    color: hsl(0, 0%, 73%);
+    outline: 0;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+}
+
+.search-button {
+    width: 64px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: none;
+    border-left: 1px solid hsl(0, 0%, 18.82%);
+    background-color: hsla(0, 0%, 100%, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover {
+    background-color: hsla(0, 0%, 100%, 0.15);
+}
+
+.search-icon {
+    color: white;
+    font-size: 20px;
+}
+
+/* Navbar Right */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-right img {
+    width: 25px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.navbar-right img:hover {
+    opacity: 0.7;
+}
+
+.navbar-right .user-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Mobile Search Button - Hidden on Desktop */
+.mobile-search-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    transition: opacity 0.2s;
+}
+
+.mobile-search-btn:hover {
+    opacity: 0.7;
+}
+
+/* Mobile Search Overlay */
+.mobile-search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0f0f0f;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+}
+
+.close-search-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    margin-top: 4px;
+}
+
+.mobile-search-box {
+    flex: 1;
+}
+
+.mobile-search-box .search-box {
+    width: 100%;
+}
+
+/* Desktop Icons */
+.desktop-icon {
+    display: block;
+}
+
+/* Tablet Styles (768px and below) */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px 4%;
+    }
+
+    .navbar-left .logo-text {
+        font-size: 1.1rem;
+    }
+
+    /* Hide desktop search on tablet */
+    .navbar-middle .desktop-search-box {
+        display: none;
+    }
+
+    /* Show mobile search button */
+    .mobile-search-btn {
+        display: flex;
+    }
+
+    /* Hide upload and notification icons on tablet */
+    .navbar-right .desktop-icon {
+        display: none;
+    }
+
+    .navbar-right {
+        gap: 15px;
+    }
+}
+
+/* Mobile Styles (480px and below) */
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 8px 3%;
+    }
+
+    .navbar-left {
+        gap: 8px;
+    }
+
+    .navbar-left .menu-icon {
+        width: 20px;
+    }
+
+    .navbar-left .logo {
+        width: 32px;
+    }
+
+    .navbar-left .logo-text {
+        font-size: 1rem;
+    }
+
+    .navbar-right {
+        gap: 10px;
+    }
+
+    .navbar-right .user-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Make mobile search take full width */
+    .mobile-search-overlay {
+        padding: 8px;
+    }
+
+    .mobile-search-box .search-box input {
+        font-size: 14px;
+    }
+
+    .mobile-search-box .search-button {
+        width: 50px;
+    }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media screen and (max-width: 360px) {
+    .navbar {
+        padding: 8px 2%;
+    }
+
+    .navbar-left .logo-text {
+        display: none;
+    }
+
+    .navbar-right {
+        gap: 8px;
+    }
+}
