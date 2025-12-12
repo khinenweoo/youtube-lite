@@ -1,5 +1,6 @@
 import './VideoCard.css'
 import { useNavigate } from 'react-router-dom';
+import { formatDistanceToNow } from 'date-fns';
 
 const VideoCard = ({video}) => {
 const navigate = useNavigate();
@@ -8,7 +9,15 @@ const thumbnail = video.snippet?.thumbnails?.high?.url || video.snippet?.thumbna
 const title = video.snippet?.title;
 const channelTitle = video.snippet?.channelTitle;
 const publishedAt =video.snippet?.publishedAt;
-const duration = video.contentDetails?.duration || '';
+
+  const getTimeAgo = (date) => {
+    if (!date) return '';
+    try {
+      return formatDistanceToNow(new Date(date), { addSuffix: true });
+    } catch {
+      return '';
+    }
+  }
 
 
   return (
@@ -22,9 +31,6 @@ const duration = video.contentDetails?.duration || '';
           alt={title}
           className='thumbnail'
         />
-        {duration && (
-          <span className='duration'>{duration}</span>
-        )}
       </div>
       <div className="video-details">
         <div className="channel-icon">
@@ -34,13 +40,12 @@ const duration = video.contentDetails?.duration || '';
         </div>
         <div className="video-info">
           <h3 className="video-title">{title}</h3>
-          <p className="channel-name">{channelTitle}</p>
-          <div className="video-metada">
-            <span>3 view</span>
+          <div className="video-metadata">
+            <p className="channel-name">{channelTitle}</p>
             {publishedAt && (
               <>
-                <span className='dot'>.</span>
-                <span>{publishedAt}</span>
+                <span className="dot">•</span>
+                <span>{getTimeAgo(publishedAt)}</span>
               </>
             )}
           </div>
