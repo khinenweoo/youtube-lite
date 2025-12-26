@@ -1,0 +1,11 @@
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    z-index: 50; /* Higher than the backdrop */
+    background-color: #0f0f0f;
+    box-shadow: 10px 0 15px rgba(0,0,0,0.5);
+    visibility: visible;
+    transform: translateX(0);
+}

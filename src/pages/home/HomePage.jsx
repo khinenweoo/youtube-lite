@@ -5,9 +5,8 @@ import { searchVideos } from '../../utils/videoApi';
 import VideoCard from '../../components/Feed/VideoCard';
 import { useAppContext } from '../../context/AppContext';
 
-
 export default function HomePage() {
-  const { sidebar, selectedCategory, searchQuery } = useAppContext();
+  const { selectedCategory, searchQuery } = useAppContext();
   const [loading, setLoading] = useState(true);
   const [videos, setVideos] = useState([]);
 
@@ -26,8 +25,6 @@ export default function HomePage() {
     fetchVideos();
   }, [selectedCategory, searchQuery]);
 
-
-
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -38,13 +35,12 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <div className={`container ${sidebar? "": "large-container"}`}>
-
+      <div className='w-full max-w-[2200px] mx-auto min-h-screen pt-5 px-4 sm:px-6 md:px-8 lg:px-12'>
         {/* Category filter */}
 
 
         {/* Videos Grid */}
-        <div className="videos-grid">
+        <div className="videos-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-4 gap-y-10">
           {videos && videos.length > 0 ? (
             videos.map((video) => (
               <VideoCard
@@ -53,19 +49,10 @@ export default function HomePage() {
               />
             ))
           ) : (
-            <div className='no-videos'>
+              <div className='no-videos h-screen flex flex-col items-center justify-center'>
               <h3>No videos found</h3>
               <p>Try searching for something else</p>
             </div>
-          )}
-        </div>
-
-
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
-          {videos? videos.map((video) => (
-            <VideoCard key={`${video.id?.videoId || video.id}`} video={video}/>
-          )) : (
-            <>No videos found</>
           )}
         </div>
       </div>

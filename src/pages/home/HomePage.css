@@ -1,21 +1,18 @@
-.container {
-    background: #0f0f0f;
-    padding-left: 19%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+
+.small-container {
+    margin-left: 15%;
 }
 
 .large-container {
-    padding-left: 7%;
+    margin-left: 5%;
 }
-
-.feed-container {
+/* .feed-container {
   background: #0f0f0f;
   min-height: 100vh;
   padding: 24px;
-  margin-left: 240px; /* Sidebar width */
+  margin-left: 240px;
   transition: margin-left 0.3s ease;
-}
+} */
 
 .feed-container.sidebar-collapsed {
   margin-left: 72px; /* Collapsed sidebar width */

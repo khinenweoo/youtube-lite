@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns';
 
 const VideoCard = ({video}) => {
-const navigate = useNavigate();
-const videoId = video.id?.videoId || video.id;
-const thumbnail = video.snippet?.thumbnails?.high?.url || video.snippet?.thumbnails?.medium?.url;
-const title = video.snippet?.title;
-const channelTitle = video.snippet?.channelTitle;
-const publishedAt =video.snippet?.publishedAt;
+  const navigate = useNavigate();
+  const videoId = video.id?.videoId || video.id;
+  const thumbnail = video.snippet?.thumbnails?.high?.url || video.snippet?.thumbnails?.medium?.url;
+  const title = video.snippet?.title;
+  const channelTitle = video.snippet?.channelTitle;
+  const publishedAt = video.snippet?.publishedAt;
 
   const getTimeAgo = (date) => {
     if (!date) return '';
@@ -19,11 +19,27 @@ const publishedAt =video.snippet?.publishedAt;
     }
   }
 
+  const handleNavigateToVideo = (e) => {
+    e.preventDefault();
+    if (videoId) {
+      navigate(`/video/${videoId}`);
+    }
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleNavigateToVideo(e);
+    }
+  }
 
   return (
     <div
       className='video-card'
-      onClick={() => navigate(`/video/${videoId}`)} 
+      onClick={handleNavigateToVideo}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`Watch ${title}`}
     >
       <div className="thumbnail-container">
         <img 

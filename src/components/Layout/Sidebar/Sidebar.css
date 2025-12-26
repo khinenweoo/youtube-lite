@@ -1,3 +1,10 @@
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 2%;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -5,7 +12,42 @@
     background-color: #0f0f0f;
     width: 15%;
     height: 100vh;
-    border-right: 1px solid rgb(61, 61, 61);
+    z-index: 5;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.small-sidebar {
+    width: 5%;
+}
+
+.app-main {
+    width: auto;
+    display: block;
+}
+/* Completely hide sidebar for Video Page */
+.sidebar-hidden {
+    transform: translateX(-100%);
+    width: 0;
+    border: none;
+    visibility: hidden;
+}
+/* Make it an overlay on Video Page when opened */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px; /* Fixed width for overlay */
+    z-index: 100; /* Ensure it's above the video player */
+    background-color: #0f0f0f;
+    box-shadow: 10px 0 15px rgba(0,0,0,0.5);
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Smooth transition for sliding */
+.sidebar {
+    transition: transform 0.3s ease, width 0.3s ease, visibility 0.3s;
 }
 
 .sidebar-content {
@@ -14,16 +56,11 @@
 }
 
 .cat-link, .user-link {
-    display: block;
-    position: relative;
-    width: calc(100% - 8%);
+    display: flex;
+    align-items: center;
     border-radius: 10px;
     padding: 12px;
     cursor: pointer;
-}
-
-.cat-link .cat-icon {
-    margin-right: 20px;
 }
 
 .cat-link .cat-name, .user-link p {
@@ -34,6 +71,7 @@
     line-height: 1rem;
     font-weight: 400;
     color: #f1f1f1;
+    margin-left: 15px;
 }
 .sidebar h3 {
     width: calc(100% - 10%);
@@ -57,55 +95,24 @@
     margin-right: 20px;
 }
 
-.small-sidebar {
-    width: 5%;
-    border-right: none;
+.small-sidebar .subscriptions {
+    visibility: hidden;
 }
 
 .small-sidebar .cat-link{
-    padding: 10px 0;
+    padding: 10px;
+    margin: 0 auto;
 }
 
 .small-sidebar .cat-link .cat-icon{
     margin-right: 0;
 }
 
-.small-sidebar span {
+.small-sidebar .cat-link .cat-name, .small-sidebar .user-link p {
+    visibility: hidden;
     display: none;
 }
 
 .small-sidebar h3 {
     display: none;
-}
-
-.small-sidebar hr {
-    width: 90%;
-    margin-bottom: 25px;
-}
-
-
-#guide-inner-content.content-wrapper {
-    height: 92vh;
-    width: 100%;
-    margin-left: 5%;
-    margin-right: 5%;
-    overflow: hidden;
-    flex: 1;
-    flex-basis: 0.000000001px;
-    flex-direction: column;
-    overflow-y: auto;
-    scrollbar-color: #555 #1e1e1e;
-    scrollbar-width: thin;
-}
-/* Custom scrollbar */
-
-
-#guide-inner-content::-webkit-scrollbar-track {
-  background: #1e1e1e;
-}
-
-#guide-inner-content::-webkit-scrollbar-thumb {
-  background-color: #555;
-  border-radius: 4px;
-  border: 2px solid #1e1e1e;
 }

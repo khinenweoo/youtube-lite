@@ -1,9 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 
-// Create the context
 const AppContext = createContext();
-
-// Custom hook to use the context
 // eslint-disable-next-line react-refresh/only-export-components
 export const useAppContext = () => {
     const context = useContext(AppContext);
@@ -13,12 +10,10 @@ export const useAppContext = () => {
     return context;
 };
 
-
 export const AppProvider = ({ children }) => {
     const [sidebar, setSidebar] = useState(true);
-    const [selectedCategory, setSelectedCategory] = useState('trending');
+    const [selectedCategory, setSelectedCategory] = useState('new');
     const [searchQuery, setSearchQuery] = useState('');
-
 
     const handleSearch = (query) => {
         setSearchQuery(query);

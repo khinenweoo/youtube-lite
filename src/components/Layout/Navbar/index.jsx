@@ -9,7 +9,7 @@ import profile_icon from '../../../assets/jack.png'
 import { useAppContext } from '../../../context/AppContext';
 
 const Navbar = () => {
-    const { setSidebar, handleSearch, searchQuery } = useAppContext();
+    const { setSidebar, handleSearch, handleCategoryChange, searchQuery } = useAppContext();
     const [searchTerm, setSearchTerm] = useState('');
     const [showMobileSearch, setShowMobileSearch] = useState(false);
     const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Navbar = () => {
 
     const handleClearSearch = () => {
         setSearchTerm('');
-        handleSearch('new');
+        handleCategoryChange('new'); // Reset to default category
     }
 
     return (
