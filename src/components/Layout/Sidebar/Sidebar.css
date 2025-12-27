@@ -133,9 +133,9 @@
     display: none;
 }
 
-/* Hide backdrop on large screens for Homepage */
+/* Hide backdrop on large screens for Homepage only */
 @media (min-width: 1025px) {
-    .backdrop-overlay {
+    .backdrop-overlay:not(.video-page-backdrop) {
         display: none !important;
     }
 }

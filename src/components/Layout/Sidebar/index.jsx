@@ -30,7 +30,7 @@ const Sidebar = () => {
       {/* Backdrop: only renders on video page or on small screens when sidebar is open */}
       {sidebar && (
         <div
-          className='fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 backdrop-overlay'
+          className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 backdrop-overlay ${isVideoPage ? 'video-page-backdrop' : ''}`}
           onClick={() => setSidebar(false)}
         />
       )}
