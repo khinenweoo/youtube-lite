@@ -39,4 +39,13 @@ export const getRelatedVideos = async (videoId) => {
 	);
 };
 
+
+export const getVideoComments = async (videoId) => {
+	return await fetchAPI(
+		`/commentThreads?part=snippet&videoId=${videoId}&maxResults=50`
+	);
+};
+
+
+	
 	
