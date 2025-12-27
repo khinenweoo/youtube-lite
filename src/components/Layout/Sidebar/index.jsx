@@ -20,15 +20,17 @@ const Sidebar = () => {
     if (isVideoPage) {
       return sidebar ? "sidebar video-overlay" : "sidebar sidebar-hidden";
     }
-    return sidebar ? "sidebar" : "sidebar small-sidebar";
+    // On large screens (>1024px): use original toggle behavior (width change)
+    // On smaller screens (≤1024px): use overlay behavior (slide in/out)
+    return sidebar ? "sidebar sidebar-visible" : "sidebar small-sidebar";
   }
 
   return (
     <>
-      {/* Backdrop: only renders on video page when sidebar is open */}
-      {isVideoPage && sidebar && (
+      {/* Backdrop: only renders on video page or on small screens when sidebar is open */}
+      {sidebar && (
         <div
-          className='fixed inset-0 bg-black/50 z-40 transition-opacity duration-300'
+          className='fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 backdrop-overlay'
           onClick={() => setSidebar(false)}
         />
       )}

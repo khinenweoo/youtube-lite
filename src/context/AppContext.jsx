@@ -12,7 +12,7 @@ export const useAppContext = () => {
 
 export const AppProvider = ({ children }) => {
     const [sidebar, setSidebar] = useState(true);
-    const [selectedCategory, setSelectedCategory] = useState('new');
+    const [selectedCategory, setSelectedCategory] = useState('New');
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearch = (query) => {

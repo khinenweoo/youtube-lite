@@ -35,7 +35,7 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <div className='w-full max-w-[2200px] mx-auto min-h-screen pt-5 px-4 sm:px-6 md:px-8 lg:px-12'>
+      <div className='w-full max-w-550 mx-auto min-h-screen pt-5 px-6 sm:px-6 md:px-8 lg:px-12'>
         {/* Category filter */}
 
 

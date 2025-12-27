@@ -99,6 +99,22 @@
     visibility: hidden;
 }
 
+/* Tablet and small screens: sidebar becomes overlay */
+@media (max-width: 1024px) {
+    /* Hide sidebar by default and show as overlay when toggled */
+    .sidebar {
+        transform: translateX(-100%);
+        width: 240px;
+        visibility: hidden;
+        z-index: 100;
+    }
+    
+    .sidebar.sidebar-visible {
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
 .small-sidebar .cat-link{
     padding: 10px;
     margin: 0 auto;
@@ -115,4 +131,11 @@
 
 .small-sidebar h3 {
     display: none;
+}
+
+/* Hide backdrop on large screens for Homepage */
+@media (min-width: 1025px) {
+    .backdrop-overlay {
+        display: none !important;
+    }
 }

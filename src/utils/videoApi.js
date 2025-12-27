@@ -23,7 +23,7 @@ export const fetchAPI = async (url) => {
 
 export const searchVideos = async (query) => {
 	return await fetchAPI(
-		`/search?q=${query}&part=snippet%2Cid&regionCode=US&maxResults=50&order=date`
+		`/search?part=snippet&q=${query}&part=id,snippet&type=video&maxResults=50`
 	);
 };
 

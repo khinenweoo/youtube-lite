@@ -61,7 +61,7 @@ const VideoPage = () => {
 
   return (
     <Layout>
-      <div className="w-full max-w-450 mx-auto pt-4 pb-10 px-0 sm:px-4 md:px-8 lg:px-16 xl:px-24">
+      <div className="w-full max-w-450 mx-auto pt-4 pb-10 px-6 sm:px-6 md:px-8 lg:px-16 xl:px-24">
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-6'>
           {/* LEFT COLUMN: Player & Info */}
           <div className="lg:col-span-8">
